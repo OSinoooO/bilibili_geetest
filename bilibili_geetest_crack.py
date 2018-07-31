@@ -130,27 +130,41 @@ class CrackGeetest():
         :param distance: 偏移量
         :return: 移动轨迹
         """
-		#移动轨迹
+        # 移动轨迹
         tracks = []
-		#当前位移
+        # 当前位移
         current = 0
-		#减速阈值
-        mid = distance*2/3
-		#时间间隔
+        # 减速阈值
+        mid = distance * 4 / 5
+        # 时间间隔
         t = 0.2
-		#初始速度
+        # 初始速度
         v = 0
-
+        printer("距离:", distance)
         while current < distance:
             if current < mid:
-                a = random.randint(2,5)
+                a = random.uniform(2, 5)
             else:
-                a = -(random.randint(6,10))
+                a = -(random.uniform(12.5, 13.5))
             v0 = v
-            v = v0+a*t
-            x = v0*t+1/2*a*t*t
+            v = v0 + a * t
+            x = v0 * t + 1 / 2 * a * t * t
             current += x
-            tracks.append(round(x, 2))
+
+            if 0.6 < current - distance < 1:
+                x = x - 0.53
+                tracks.append(round(x, 2))
+                printer("机制1")
+            elif 1 < current - distance < 1.5:
+                x = x - 1.4
+                tracks.append(round(x, 2))
+                printer("机制2")
+            elif 1.5 < current - distance < 3:
+                x = x - 1.8
+                tracks.append(round(x, 2))
+                printer("机制3")
+            else:
+                tracks.append(round(x, 2))
 
         return tracks
 
