@@ -218,7 +218,8 @@ if __name__ == '__main__':
             bg_location_list, fullgb_location_list = check.get_geetest_image()
             img1 = check.get_merge_image('Image/fullgb.jpg', fullgb_location_list)
             img2 = check.get_merge_image('Image/bg.jpg', bg_location_list)
-            distance = check.get_gap(img1, img2) * 1.142
+            # distance应根据实际情况做微调
+            distance = check.get_gap(img1, img2) * 1.138
             slider = check.get_slider()
             tracks = check.get_track(distance)
             check.move_to_gap(slider, tracks)
