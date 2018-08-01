@@ -140,6 +140,7 @@ class CrackGeetest():
         t = 0.2
         # 初始速度
         v = 0
+
         while current < distance:
             if current < mid:
                 a = random.uniform(2, 5)
@@ -153,12 +154,14 @@ class CrackGeetest():
             if 0.6 < current - distance < 1:
                 x = x - 0.53
                 tracks.append(round(x, 2))
+
             elif 1 < current - distance < 1.5:
                 x = x - 1.4
                 tracks.append(round(x, 2))
             elif 1.5 < current - distance < 3:
                 x = x - 1.8
                 tracks.append(round(x, 2))
+
             else:
                 tracks.append(round(x, 2))
 
