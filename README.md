@@ -5,3 +5,5 @@
 希望大佬能够改进滑块移动轨迹的函数（def get_track()），以提高破解成功率。  
    
 需搭建Chrome浏览器环境及相对应版本的Chromedriver。
+  
+感谢 Dawnnnnnn 大佬提供的技术支持，目前成功率超过90%。
