@@ -140,7 +140,6 @@ class CrackGeetest():
         t = 0.2
         # 初始速度
         v = 0
-        printer("距离:", distance)
         while current < distance:
             if current < mid:
                 a = random.uniform(2, 5)
@@ -154,15 +153,12 @@ class CrackGeetest():
             if 0.6 < current - distance < 1:
                 x = x - 0.53
                 tracks.append(round(x, 2))
-                printer("机制1")
             elif 1 < current - distance < 1.5:
                 x = x - 1.4
                 tracks.append(round(x, 2))
-                printer("机制2")
             elif 1.5 < current - distance < 3:
                 x = x - 1.8
                 tracks.append(round(x, 2))
-                printer("机制3")
             else:
                 tracks.append(round(x, 2))
 
@@ -219,7 +215,7 @@ if __name__ == '__main__':
             bg_location_list, fullgb_location_list = check.get_geetest_image()
             img1 = check.get_merge_image('Image/fullgb.jpg', fullgb_location_list)
             img2 = check.get_merge_image('Image/bg.jpg', bg_location_list)
-            distance = check.get_gap(img1, img2) * 1.145
+            distance = check.get_gap(img1, img2) * 1.142
             slider = check.get_slider()
             tracks = check.get_track(distance)
             check.move_to_gap(slider, tracks)
